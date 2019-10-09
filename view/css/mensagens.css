@@ -1,0 +1,8 @@
+#erro{
+    color: red;
+    font-style: italic;
+    font-size: 18px;
+    background-color: #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
