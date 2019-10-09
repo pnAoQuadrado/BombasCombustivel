@@ -24,16 +24,21 @@ if (isset($action)) {
 					$resultado = "ESTE Nº DE MATRÍCULA EXISTE";
 					$id_auto = $registo[0]['idautomovel'];
 					$matr = $registo[0]['num_matricula'];
+					$matr = strtoupper($matr);
 					$nome = $registo[0]['nome'];
+					$nome = strtoupper($nome);
 					$bi = $registo[0]['num_bi'];
+					$bi = strtoupper($bi);
 					$tel = $registo[0]['telefone'];
 
 					$ob = new daoPagamento();
 					$registo=$ob->getUltimoMesPagoTaxa($id_auto);
 					$mes_taxa = $registo[0]['descricao'];
+					$mes_taxa = strtoupper($mes_taxa);
 
 					$registo=$ob->getUltimoMesPagoSeguro($id_auto);
 					$mes_seg = $registo[0]['descricao'];
+					$mes_seg = strtoupper($mes_seg);
 
 					$cor_res="btn btn-success";
 				}
