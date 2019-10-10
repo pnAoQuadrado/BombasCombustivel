@@ -1,0 +1,26 @@
+
+
+#lb1, #lb2, #lb3, #lb4, #lb5{
+    font-size: 16px;
+}
+
+.form-control{
+    font-size: 16px;
+}
+
+
+#dv-res{
+    font-size: 20px;
+    color: red;
+    font-weight: bold;
+    padding: 15px;
+    font-style: italic;
+}
+
+.mostra{
+    display: block;
+}
+
+.nao-mostra{
+    display: none;
+}

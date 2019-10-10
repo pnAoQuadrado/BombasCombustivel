@@ -9,3 +9,94 @@
 .btn-dg {
     background-color: red !important;
 }
+
+.bg-login-image {
+  background-image: url(../img/1.jpg) !important;
+  background-position: center;
+  background-size: cover;
+}
+.bg-login-image1{
+  background-image: url(../img/2.jpg) !important;
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-password-image {
+  background: url(../img/3.jpg) !important;
+  background-position: center;
+  background-size: cover;
+}
+.border-left-success {
+  border-left: 0.25rem solid #0b3a59 !important;
+}
+
+.text-success {
+  color: #0b3a59 !important;
+}
+
+a.text-success:hover, a.text-success:focus {
+  color: #0b3a59 !important;
+}
+
+
+.border-left-info {
+  border-left: 0.25rem solid #016593 !important;
+}
+
+.text-info {
+  color: #016593 !important;
+}
+
+a.text-info:hover, a.text-success:focus {
+  color: #016593 !important;
+}
+.bg-info{
+	background-color: #016593 !important;
+}
+
+.border-left-warning {
+  border-left: 0.25rem solid #0791bf !important;
+}
+
+.text-warning {
+  color: #0791bf !important;
+}
+
+a.text-warning:hover, a.text-warning:focus {
+  color: #0791bf !important;
+}
+
+.bg-warning{
+	background-color: #0791bf !important;
+}
+.ocultar{
+	display: none;
+}
+
+
+.c{
+	text-align: center !important;
+}
+
+#accordionSidebar.navbar-nav{
+	background-image: url(../img/bg.jpg);
+	background-position: center;
+  background-size: cover;
+}
+
+body.bg-gradient-primary{
+	background-image: url(../img/petrol.jpg) !important;
+	background-position: center;
+  background-size: cover;
+}
+
+.h4 span{
+  font-size: 16px !important;
+}
+
+form.user .form-control-user {
+  font-size: 0.8rem;
+  border-radius: 10rem;
+  padding: 1.5rem 1rem;
+}
+

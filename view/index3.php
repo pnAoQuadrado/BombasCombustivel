@@ -73,6 +73,7 @@ if (isset($action)) {
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link href="css/demo.css" rel="stylesheet">
 	<link href="css/custom.css" rel="stylesheet">
+	<link href="css/page3-style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -109,16 +110,16 @@ if (isset($action)) {
 		                                		<div class="col-sm-12">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label for="exampleInputEmail1">Nome completo</label>
-															<input type="text" name="nome" class="form-control"  value="<?php echo $nome ?>" readonly>
+															<label id="lb1" for="">Nome completo</label>
+															<input type="text" name="nome" class="form-control" value="<?php echo $nome ?>" readonly>
 															<!--<input type="text" name="id_candidato" class="form-control none"  value="">
 -->
 													  	</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label for="exampleInputEmail1">Número do bilhete de identidade</label>
-															<input type="text" name="bi" class="form-control"  value="<?php echo $bi ?>" readonly>
+															<label id="lb2" for="">Número do bilhete de identidade</label>
+															<input type="text" name="bi" class="form-control" value="<?php echo $bi ?>" readonly>
 													  	</div>
 													</div>
 													<!--<div class="col-md-6">
@@ -135,14 +136,14 @@ if (isset($action)) {
 		                                		<div class="col-sm-12">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label for="exampleInputEmail1">Número de telefone</label>
-															<input type="text" name="genero" class="form-control"  value="<?php echo $tel ?>" readonly>
+															<label id="lb3" for="">Número de telefone</label>
+															<input type="text" name="genero" class="form-control" value="<?php echo $tel ?>" readonly>
 													  	</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label for="exampleInputEmail1">Número da chapa de Matricula</label>
-															<input type="text" name="numeroTelefone" class="form-control"  value="<?php echo $matr ?>" readonly>
+															<label id="lb4" for="">Número da chapa de Matricula</label>
+															<input type="text" name="numeroTelefone" class="form-control" value="<?php echo $matr ?>" readonly>
 													  	</div>
 													</div>
 		                                		</div>
@@ -152,31 +153,14 @@ if (isset($action)) {
 		                                		<div class="col-sm-12">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label for="exampleInputEmail1">Último Mês Pago (SEGURO):</label>
-															<span class="badge badge-pill badge-primary bdr"><?php echo $mes_seg ?></span>
+															<label id="texto" for=""><strong>Mês Pago (SEGURO):</strong> <?php echo $mes_seg ?></label><br>
+															<label id="texto1" for=""><strong>Status (SEGURO):</strong> </label>
 													  	</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label for="exampleInputEmail1">Status (SEGURO)</label>
-															<span class="badge badge-pill badge-secondary bdr">Regularizado</span>
-													  	</div>
-													</div>
-		                                		</div>
-											</div>
-
-											<div class="row">
-		                                		<div class="col-sm-12">
-													<div class="col-md-6">
-														<div class="form-group">
-															<label for="exampleInputEmail1">Último Mês Pago (TAXA):</label>
-															<span class="badge badge-pill badge-primary bdr"><?php echo $mes_taxa ?></span>
-													  	</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<label for="exampleInputEmail1">Status (TAXA)</label>
-															<span class="badge badge-success bdn">Não Regularizado</span>
+															<label id="texto2" for=""><strong>Mês Pago (TAXA):</strong> <?php echo $mes_taxa ?></label><br>
+															<label id="texto3" for=""><strong>Status (TAXA):</strong></label>
 													  	</div>
 													</div>
 		                                		</div>
@@ -186,7 +170,7 @@ if (isset($action)) {
 		                        	</div>
 	                        		<div class="wizard-footer">
                                         <div class="text-center">
-                                            <span class="<?php echo $cor_res ?>"><?php echo $resultado ?></span>
+                                            <span id="sp-res" class="<?php echo $cor_res ?>"><?php echo $resultado ?></span>
                                         </div>
                                         
 	                            		<div class="pull-right">
