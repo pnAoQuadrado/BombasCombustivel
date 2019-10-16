@@ -5,6 +5,8 @@ include '../model/daoPagamento.php';
 
 $nome = $bi = $tel = $matr = $resultado = $cor_res = "";
 $id_auto = $mes_taxa = $mes_seg ="";
+$mes_taxa_num = $mes_seg_num = $res_taxa = $res_seg = '';
+$cor_label_1 = $cor_label_2 = '';
 
 extract($_REQUEST);
 
@@ -21,7 +23,7 @@ if (isset($action)) {
 					$cor_res="btn btn-dg";
 				}
 				else{
-					$resultado = "ESTE Nº DE MATRÍCULA EXISTE";
+					
 					$id_auto = $registo[0]['idautomovel'];
 					$matr = $registo[0]['num_matricula'];
 					$matr = strtoupper($matr);
@@ -40,7 +42,45 @@ if (isset($action)) {
 					$mes_seg = $registo[0]['descricao'];
 					$mes_seg = strtoupper($mes_seg);
 
-					$cor_res="btn btn-success";
+					//traz os números que representam os últimos meses pagos
+					$registo = $ob->getUltimoMesPagoTaxa_Number($id_auto);
+					$mes_taxa_num = $registo[0]['idmes'];
+					$registo = $ob->getUltimoMesPagoSeguro_Number($id_auto);
+					$mes_seg_num = $registo[0]['idmes'];
+
+					// pega o mês actual do sistema
+					$mes_actual = strftime("%m");
+
+					// verifica regularidade da taxa e seguros
+					if($mes_taxa_num >= $mes_actual){
+						$res_taxa = 'Regularizado';
+						$cor_label_2 ='texto-verde';
+					}
+					else{
+						$res_taxa = 'Não Regularizado';
+						$cor_label_2 ='texto-vermelho';
+					}
+
+					// verifica regularidade do seguros
+					if($mes_seg_num >= $mes_actual){
+						$res_seg = 'Regularizado';
+						$cor_label_1 ='texto-verde';
+					}
+					else{
+						$res_seg = 'Não Regularizado';
+						$cor_label_1 ='texto-vermelho';
+					}
+
+					// verifica a regularidade geral do automobilista
+					if($mes_seg_num < $mes_actual){
+						$resultado = "NÃO AUTORIZADO A ABASTECER";
+						$cor_res="btn btn-dg";
+					}
+					else{
+						$resultado = "AUTORIZADO A ABASTECER";
+						$cor_res="btn btn-success";
+					}
+
 				}
 
             }
@@ -153,14 +193,16 @@ if (isset($action)) {
 		                                		<div class="col-sm-12">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label id="texto" for=""><strong>Mês Pago (SEGURO):</strong> <?php echo $mes_seg ?></label><br>
-															<label id="texto1" for=""><strong>Status (SEGURO):</strong> </label>
+															<label id="texto" for=""><strong>Mês Pago (SEGURO):</strong></label><label id="texto4"><?php echo $mes_seg ?></label><br>
+															<label id="texto1" for=""><strong>Status (SEGURO):</strong></label><label id="<?php echo $cor_label_1 ?>"> <?php echo $res_seg ?></label>
 													  	</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label id="texto2" for=""><strong>Mês Pago (TAXA):</strong> <?php echo $mes_taxa ?></label><br>
+															<label id="texto2" for=""><strong>Mês Pago (TAXA):</strong></label>
+															<label id="texto5"><?php echo $mes_taxa ?></label><br>
 															<label id="texto3" for=""><strong>Status (TAXA):</strong></label>
+															<label id="<?php echo $cor_label_2 ?>"><?php echo $res_taxa ?></label>
 													  	</div>
 													</div>
 		                                		</div>

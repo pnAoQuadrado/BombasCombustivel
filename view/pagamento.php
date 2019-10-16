@@ -1,19 +1,24 @@
 
 <?php
 
-include '../model/daoAutomovel.php';
 include '../model/daoPagamento.php';
+include '../model/daoMes.php';
+include '../model/daoAutomovel.php';
 
+// carrega meses
+$mes = new daoMes();
+$meses = $mes->getMeses();
+
+//------------------------- 
 $nome = $bi = $tel = $matr = $resultado = $cor_res = "";
-$id_auto = "";
-$cm = "nao-mostra";
+$id_auto = $acao = ""; 
 
 extract($_REQUEST);
 
 if (isset($action)) {
 
     switch ($action) {
-        case 'pesquisar';
+        case 'pesquisar':
             {
                 $ob = new daoAutomovel();
 				$registo=$ob->getAutomoveis($txtPesq);
@@ -21,9 +26,11 @@ if (isset($action)) {
 				if($registo == null){
 					$resultado = "* Nenhum registo encontrado *";
 					$cm = "nao-mostra";
+					$acao = "pesquisar";
 				}
 				else{
 					$cm = "mostra";
+					$acao = "pagar";
 					$id_auto = $registo[0]['idautomovel'];
 					$matr = $registo[0]['num_matricula'];
 					$matr = strtoupper($matr);
@@ -35,9 +42,24 @@ if (isset($action)) {
 				}
 
             }
-            break;
+			break;
+		
+			case 'pagar':
+			{
+				$data_actual = new DateTime();
+				$result = $data_actual->format('Y-m-d H:i:s');
+				$ob = new daoPagamento($id_auto, $result, $mes, $id_auto);
+                $ob->pagarSeguro();
+                header("Location:../view/listaPagamentos.php");
+			}
+			break;
     }
 }
+else{
+	$cm = "nao-mostra";
+	$acao = 'pesquisar';
+}
+
 ?>
 
 <!Doctype html>
@@ -67,7 +89,7 @@ if (isset($action)) {
 </head>
 
 <body>
-	<div class="image-container set-full-height" style="background-image: url('img/26.jpg')">
+	<div class="image-container set-full-height" style="background-image: url('img/bg1.jpg')">
 
 	    <!--   Big container   -->
 	    <div class="container">
@@ -106,9 +128,9 @@ if (isset($action)) {
 
 													<div class="col-md-2">
 														<div class="form-group">
-															<input type='submit' class='btn btn-finish btn-fill btn-success btn-wd' value='Pesquisar' />
-															<input type="hidden" name="action" value="pesquisar" class="btn btn-success">
-													  	</div>
+															<input type='submit' class='btn btn-finish btn-fill btn-success btn-wd' value='Pesquisar'/>
+													  		
+														  </div>
 													</div>
 
 													<div class="col-md-6">
@@ -121,6 +143,17 @@ if (isset($action)) {
 											</div>
 
 											<hr>
+
+											<div class="row">
+		                                		<div class="col-sm-12 nao-mostra" id="gb-1">
+													<div class="col-md-6 mt-5">
+														<div class="form-group">
+															<label id="lb2" for="">ID Automóvel</label>
+															<input type="text" name="id_auto" class="form-control"  value="<?php echo $id_auto ?>" readonly>
+													  	</div>
+													</div>
+		                                		</div>
+											</div>
 
 											<div class="row">
 		                                		<div class="col-sm-12 <?php echo $cm ?>" id="gb-1">
@@ -168,10 +201,13 @@ if (isset($action)) {
 													<div class="col-md-6">
                                                         <div class="form-group">
                                                             <label id="lb5" for="">Mês a Pagar</label>
-                                                            <select id="inputState" class="form-control">
-															<option selected>Escolha o Mês</option>
-															<option>...</option>
+                                                            <select id="cmbMes" name="mes" class="form-control">
+																<option value="0" selected>Escolha o Mês</option>
+																<?php foreach ($meses as $m) { ?>
+																	<option value="<?php echo $m['idmes'] ?>"><?php echo $m['descricao'] ?></option>
+																<?php } ?>
 															</select>
+															<div id="erro"></div>
                                                         </div>
 													</div>
 													
@@ -182,12 +218,9 @@ if (isset($action)) {
 		                        	</div>
 	                        		<div class="wizard-footer">
 	                            		<div class="pull-right">
-	                                    	<input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Proximo' />
-	                                    	<input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' />
-	                                	</div>
-	                                	<div class="pull-left">
-	                                    	<input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />
-	                                	</div>
+	                                    	<input id="bt-finalizar" type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' onclick = "return validacao();" />
+											<input type="hidden" name="action" value="<?php echo $acao ?>" class="btn btn-success">
+										</div>
 	                                	<div class="clearfix"></div>
 	                        		</div>
 								
@@ -209,6 +242,6 @@ if (isset($action)) {
 
 	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
 	<script src="js/jquery.validate.min.js"></script>
-	<script src="js/jsHome.js"></script>
+	<script src="js/jsPagamento.js"></script>
 </body>
 </html>

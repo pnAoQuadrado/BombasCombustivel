@@ -10,7 +10,7 @@ function validacao(){
 
     if(matricula == null || matricula.length == 0 ||  /^\s+$/.test(matricula)){
         document.getElementById('erro').style.display = 'block';
-        document.getElementById('erro').innerHTML = "* Digite o Nº da chapa de matrícula *";
+        document.getElementById('erro').innerHTML = "Digite o Nº da chapa de matrícula";
         retorno = false;
     }
 

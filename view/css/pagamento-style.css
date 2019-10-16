@@ -9,11 +9,11 @@
 }
 
 
-#dv-res{
+#dv-res, #erro{
     font-size: 20px;
     color: red;
     font-weight: bold;
-    padding: 15px;
+    padding: 14px;
     font-style: italic;
 }
 
@@ -23,4 +23,8 @@
 
 .nao-mostra{
     display: none;
+}
+
+#bt-finalizar{
+    margin-top: 60px;
 }

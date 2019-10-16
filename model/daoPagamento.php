@@ -27,16 +27,16 @@ class daoPagamento {
     }
 
     //constructor que será invocado si se le pasan argumentos
-    function constructArg($id, $matr, $prop) {
+    function constructArg($id, $data, $mes, $auto) {
         $this->id = $id;
-        $this->num_matricula = $matr;
-        $this->id_prop;
+        $this->data = $data;
+        $this->id_mes = $mes;
+        $this->id_auto = $auto;
     }
 
     // completar funcion para insertar los datos de una reunión, tener en cuenta la estructura de la base de datos.
-    function insertAutomovel() {
-        $sql="INSERT INTO automovel (num_matricula, idproprietario) VALUES ('$this->num_matricula', $this->id_prop)";
-    
+    function pagarSeguro() {
+        $sql="UPDATE pag_seguro SET data_pag = '$this->data', idmes = $this->id_mes WHERE idautomovel = $this->id_auto";
         $con=new connection();
         $con->executeQuery($sql);
     }
@@ -53,6 +53,17 @@ class daoPagamento {
         return $con->getResult($sql);
     }
 
+    function getUltimoMesPagoTaxa_Number($id=""){
+
+        $sql="SELECT 
+                      idmes
+                    FROM
+                      pag_taxa
+                      WHERE idautomovel = $id";
+        $con=new connection();
+        return $con->getResult($sql);
+    }
+
     function getUltimoMesPagoSeguro($id=""){
 
         $sql="SELECT 
@@ -64,17 +75,29 @@ class daoPagamento {
         $con=new connection();
         return $con->getResult($sql);
     }
-    function getMaterial($id=""){
+
+    function getUltimoMesPagoSeguro_Number($id=""){
 
         $sql="SELECT 
-                  idmaterial,
-                  descricao
-                FROM
-                  material
-                WHERE
-                  idmaterial = $id
-                      ";
+                      idmes
+                    FROM
+                      pag_seguro
+                      WHERE idautomovel = $id";
+        $con=new connection();
+        return $con->getResult($sql);
+    }
 
+    function getPagamentosSeguro(){
+
+        $sql="SELECT 
+                  p.idpag_seguro,
+                  p.data_pag,
+                  m.descricao,
+                  a.num_matricula
+                FROM
+                  pag_seguro p
+                  INNER JOIN mes m ON (m.idmes = p.idmes) 
+                  INNER JOIN automovel a ON (a.idautomovel = p.idautomovel)";
         $con=new connection();
         return $con->getResult($sql);
     }
