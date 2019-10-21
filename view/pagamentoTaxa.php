@@ -49,8 +49,8 @@ if (isset($action)) {
 				$data_actual = new DateTime();
 				$result = $data_actual->format('Y-m-d H:i:s');
 				$ob = new daoPagamento($id_auto, $result, $mes, $id_auto);
-                $ob->pagarSeguro();
-                header("Location:../view/listaPagamentos.php");
+                $ob->pagarTaxa();
+                header("Location:../view/listaPagamentosTaxa.php");
 			}
 			break;
     }
@@ -67,7 +67,7 @@ else{
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Home</title>
+	<title>Pagamento Taxa</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <meta name="viewport" content="width=device-width">
@@ -98,12 +98,12 @@ else{
 		            <!--      Wizard container        -->
 		            <div class="wizard-container">
 		                <div class="card wizard-card" data-color="red" id="wizard">
-							<form method="POST" action="pagamento.php">
+							<form method="POST" action="pagamentoTaxa.php">
 		                			<!-- You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    		<div class="wizard-header">
 		                        		<h3 class="wizard-title">
-		                        			Pagamento de Seguro Automóvel
+		                        			Pagamento de Taxa de Circulação
 		                        		</h3>
 									</div>
 									
@@ -191,13 +191,6 @@ else{
 											
 											<div class="row">
                                                 <div class="col-sm-12 <?php echo $cm ?>" id="gb-3">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
-                                                            <label id="lb5" for="">Data</label>
-                                                            <input type="date" name="data" class="form-control" value="">
-                                                        </div>
-													</div>
-													
 													<div class="col-md-6">
                                                         <div class="form-group">
                                                             <label id="lb5" for="">Mês a Pagar</label>

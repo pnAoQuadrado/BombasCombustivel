@@ -5,7 +5,7 @@ include '../model/daoPagamento.php';
 
 // carrega pagamentos
 $ob = new daoPagamento();
-$registos = $ob->getPagamentosSeguro();
+$registos = $ob->getPagamentosTaxa();
 
 ?>
 
@@ -14,7 +14,7 @@ $registos = $ob->getPagamentosSeguro();
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Home</title>
+	<title>Listar - Pagamentos Taxa</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'>
     <meta name="viewport" content="width=device-width">
@@ -36,7 +36,7 @@ $registos = $ob->getPagamentosSeguro();
 </head>
 
 <body>
-	<div class="image-container set-full-height" style="background-image: url('img/26.jpg')">
+	<div class="image-container set-full-height" style="background-image: url('img/bg1.jpg')">
 
 	    <!--   Big container   -->
 	    <div class="container">
@@ -64,9 +64,6 @@ $registos = $ob->getPagamentosSeguro();
                     <th>
                         Nº Matrícula
                     </th>
-					<th>
-                        Acções
-                    </th>
                 </tr>
                 </thead>
                 <tbody>
@@ -75,21 +72,29 @@ $registos = $ob->getPagamentosSeguro();
                 foreach ($registos as $linha){ ?>
                     <tr>
                         <td><?php echo ++$i; ?> </td>
-                        <td><?php echo $linha['idpag_seguro']?> </td>
+                        <td><?php echo $linha['idpag_taxa']?> </td>
                         <td><?php echo $linha['data_pag']?> </td>
 						<td><?php echo $linha['descricao']?> </td>
                         <td><?php echo $linha['num_matricula']?> </td>
-                        <td><a id="editar" href="?opcion=2&action=alterar&idNacion=<?php echo $linha['idpag_seguro'];?>">Editar</a>  | <a id="eliminar" href="?opcion=2&action=eliminar&idNacion=<?php echo $linha['idpag_seguro'];?>">Eliminar</td>
                     </tr>
                <?php  } ?>
 
                 </tbody>
             </table>      
-
+			
 		                </div>
 		            </div> <!-- wizard container -->
-		        </div>
-	    	</div> <!-- row -->
+				</div>
+			</div> <!-- row -->
+			
+			<div class="row">
+			<div class="col-md-2">
+			<a href="pagamentoTaxa.php" class="btn btn-danger btn-wd btn-user btn-block">
+                    VOLTAR
+                </a>
+			</div>
+			</div>
+
 		</div> <!--  big container -->
 	</div>
 

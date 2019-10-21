@@ -41,6 +41,12 @@ class daoPagamento {
         $con->executeQuery($sql);
     }
 
+    function pagarTaxa() {
+        $sql="UPDATE pag_taxa SET data_pag = '$this->data', idmes = $this->id_mes WHERE idautomovel = $this->id_auto";
+        $con=new connection();
+        $con->executeQuery($sql);
+    }
+
     function getUltimoMesPagoTaxa($id=""){
 
         $sql="SELECT 
@@ -96,6 +102,21 @@ class daoPagamento {
                   a.num_matricula
                 FROM
                   pag_seguro p
+                  INNER JOIN mes m ON (m.idmes = p.idmes) 
+                  INNER JOIN automovel a ON (a.idautomovel = p.idautomovel)";
+        $con=new connection();
+        return $con->getResult($sql);
+    }
+
+    function getPagamentosTaxa(){
+
+        $sql="SELECT 
+                  p.idpag_taxa,
+                  p.data_pag,
+                  m.descricao,
+                  a.num_matricula
+                FROM
+                  pag_taxa p
                   INNER JOIN mes m ON (m.idmes = p.idmes) 
                   INNER JOIN automovel a ON (a.idautomovel = p.idautomovel)";
         $con=new connection();

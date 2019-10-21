@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login</title>
+  <title>Abastecimento</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,15 +23,15 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="css/custom.css" rel="stylesheet">
+  <link href="css/mensagens.css" rel="stylesheet">
 
 </head>
 
 <body class="bg-gradient-primary">
-
   <div class="container">
 
     <!-- Outer Row -->
-    <div class="row justify-content-center">
+    <div class="row justify-content-center"  id="linha-user">
 
       <div class="col-xl-6 col-lg-10 col-md-6">
 
@@ -37,34 +42,23 @@
             <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
             <div class="col-lg-12">
             <div class="p-5">
-                <br><br><br><br>
+                <br><br>
                 <div class="text-center">
-                <h1 class="h4 text-gray-900 mb-4">LOGIN</h1>
                 </div>
-                <form class="user">
-                <div class="form-group">
-                    <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nome de usuário">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Senha">
-                </div>
-                <div class="form-group">
-                    <div class="custom-control custom-checkbox small">
-                    <input type="checkbox" class="custom-control-input" id="customCheck">
-                    <label class="custom-control-label" for="customCheck">Lembra-me</label>
-                    </div>
-                </div>
-                <a href="professor/dashboard" class="btn btn-primary btn-user btn-block">
-                    ENTRAR
-                </a>
+                <form class="user" action="situacaoAutomovel.php" method="POST" onsubmit="return validacao();">
+                <input type="text" id="search" name="txtPesq" class="form-control mb-4" placeholder="Número da Chapa de Matrícula">
+					<button id="teste" class="btn btn-info btn-block my-4" type="submit">Validar</button>
+					<input type="hidden" name="action" value="pesquisar" class="btn btn-success">
+					<span id="erro" class="info text-center">dffd</span>
                 <hr>
-                
+                <br><br><br><br><br>
+                <?php
+            if(isset($_SESSION['user'])){
+                ?>
+                <b><?php echo $_SESSION['user']['nome'];?></b> (<?php echo $_SESSION['user']['descricao'];?>)<br> | <a href="../controller/ccUsuario.php?action=close">Fechar Sessão</a>
+                <?php
+            }?>
                 </form>
-                <div class="text-center">
-                <a class="small" href="{{ route('password.request')}}">Esqueceu a senha?</a>
-                </div>
-
-                <br><br><br><br>
             </div>
             </div>
         </div>
@@ -86,6 +80,14 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+  <script src="js/jsBombas.js"></script>
+    <!--   Core JS Files   -->
+	<script src="js/jquery-2.2.4.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/jquery.bootstrap.js" type="text/javascript"></script>
+	<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/extention/choices.js"></script>
 
 </body>
 

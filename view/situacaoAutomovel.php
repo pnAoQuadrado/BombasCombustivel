@@ -126,7 +126,7 @@ if (isset($action)) {
 		            <!--      Wizard container        -->
 		            <div class="wizard-container">
 		                <div class="card wizard-card" data-color="red" id="wizard">
-							<form method="POST" action="bombas.php">
+							<form method="POST" action="validar.php">
 		                			<!-- You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 
 		                    		<div class="wizard-header">
@@ -193,15 +193,15 @@ if (isset($action)) {
 		                                		<div class="col-sm-12">
 													<div class="col-md-6">
 														<div class="form-group">
-															<label id="texto" for=""><strong>Mês Pago (SEGURO):</strong></label><label id="texto4"><?php echo $mes_seg ?></label><br>
-															<label id="texto1" for=""><strong>Status (SEGURO):</strong></label><label id="<?php echo $cor_label_1 ?>"> <?php echo $res_seg ?></label>
+															<label id="texto" for=""><strong>Mês Pago (SEGURO): </strong></label><label id="texto4"> <?php echo $mes_seg ?></label><br>
+															<label id="texto1" for=""><strong>Status (SEGURO): </strong></label><label id="<?php echo $cor_label_1 ?>"> <?php echo $res_seg ?></label>
 													  	</div>
 													</div>
 													<div class="col-md-6">
 														<div class="form-group">
-															<label id="texto2" for=""><strong>Mês Pago (TAXA):</strong></label>
+															<label id="texto2" for=""><strong>Mês Pago (TAXA): </strong></label>
 															<label id="texto5"><?php echo $mes_taxa ?></label><br>
-															<label id="texto3" for=""><strong>Status (TAXA):</strong></label>
+															<label id="texto3" for=""><strong>Status (TAXA): </strong></label>
 															<label id="<?php echo $cor_label_2 ?>"><?php echo $res_taxa ?></label>
 													  	</div>
 													</div>

@@ -11,7 +11,7 @@ if (isset($action)) {
 
                 $ob = new daoAutomovel();
                 $ob->getAutomoveis($txtPesq);
-                header("Location:../view/index3.php");
+                header("Location:../view/situacaoAutomovel.php");
 
             }
             break;
