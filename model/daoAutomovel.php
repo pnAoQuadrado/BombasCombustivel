@@ -29,13 +29,13 @@ class daoAutomovel {
     function constructArg($id, $matr, $prop) {
         $this->id = $id;
         $this->num_matricula = $matr;
-        $this->id_prop;
+        $this->id_prop = $prop;
     }
 
     // completar funcion para insertar los datos de una reunión, tener en cuenta la estructura de la base de datos.
     function insertAutomovel() {
         $sql="INSERT INTO automovel (num_matricula, idproprietario) VALUES ('$this->num_matricula', $this->id_prop)";
-    
+        
         $con=new connection();
         $con->executeQuery($sql);
     }
@@ -56,23 +56,37 @@ class daoAutomovel {
         return $con->getResult($sql);
     }
 
-    function getMaterial($id=""){
+    function getAuto($id=""){
 
         $sql="SELECT 
-                  idmaterial,
-                  descricao
-                FROM
-                  material
-                WHERE
-                  idmaterial = $id
+            a.idautomovel,
+            a.num_matricula,
+            a.idproprietario
+        FROM
+          automovel a
+        WHERE a.idautomovel = '$id'
+          ";
+        $con=new connection();
+        return $con->getResult($sql);
+    }
+
+    function getRegistos($id=""){
+
+        $sql="SELECT 
+                    a.idautomovel,
+                      a.num_matricula,
+                      p.nome
+                    FROM
+                      automovel a
+                      INNER JOIN proprietario p ON (a.idproprietario = p.idproprietario)
                       ";
 
         $con=new connection();
         return $con->getResult($sql);
     }
 
-    function  updateMaterial(){
-        $sql="UPDATE material set descricao='$this->descricao' WHERE idmaterial=$this->id";
+    function  updateAutomovel(){
+        $sql="UPDATE automovel set num_matricula='$this->num_matricula', idproprietario = $this->id_prop WHERE idautomovel=$this->id";
         $con=new connection();
         $con->executeQuery($sql);
     }
