@@ -54,7 +54,7 @@ ob_start();
                 <?php
             if(isset($_SESSION['user'])){
                 ?>
-                <b><?php echo $_SESSION['user']['nome'];?></b> (<?php echo $_SESSION['user']['descricao'];?>)<br> | <a href="../controller/ccUsuario.php?action=close">Fechar Sessão</a>
+                <b><?php echo $_SESSION['user']['nome'];?></b> (<?php echo $_SESSION['user']['descricao'];?>)<br> | <a href="../controller/ccUsuario.php?accion=close&modulo=bombas">Fechar Sessão</a>
                 <?php
             }else{ header('Location: ../index.php');} ?>
                 </form>

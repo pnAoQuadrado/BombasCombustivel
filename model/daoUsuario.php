@@ -3,10 +3,12 @@
 include_once 'connection.php';
 
 class daoUsuario {
-    public $iduser;
-    public $user;
-    public $pass;
-    public $name;
+
+    private $iduser;
+    private $user;
+    private $pass;
+    private $name;
+    private $id_perm;
 
     function __construct() {
         $a = func_get_args();
@@ -24,68 +26,68 @@ class daoUsuario {
     }
 
     //constructor que será invocado si se le pasan argumentos al llamar la clase dao_Person
-        function constructArg($idUser,$user, $pass, $name) {
+        function constructArg($idUser,$user, $pass, $name, $perm) {
         $this->iduser = $idUser;
         $this->user = $user;
         $this->pass = $pass;
         $this->name = $name;
+        $this->id_perm = $perm;
     }
 
 
     // completar funcion para insertar los datos de una reunión, tener en cuenta la estructura de la base de datos.
-    function insertPerson() {
-        $pass=md5($this->pass);
-        $sql="INSERT INTO user(user, pass, name, age, idSex,idRole) VALUES ('$this->user', '$pass', '$this->name', $this->age, $this->sex,1)";
+    function insertUsuario() {
+        $sql="INSERT INTO user (nome, nome_usu, senha, idpermissao) VALUES ('$this->name', '$this->user', md5('$this->pass'),$this->id_perm)";
         $con=new connection();
         $con->executeQuery($sql);
-        $id=$con->lastId('idUser','user');
-          return $id;
-
     }
 
-    function getPerson($id=""){
-        if($id>0){
-            $where="WHERE
-  user.idUser = $id";
-        }else{
-            $where="";
-        }
+    function getUsuarios($id=""){
 
         $sql="SELECT 
-                      user.user,
-                      user.name,
-                      user.age,
-                      user.pass,
-                      sex.description AS sex,                     
-                      user.idUser,                      
-                      sex.idSex
+                    u.iduser,
+                      u.nome,
+                      u.nome_usu,
+                      p.descricao
                     FROM
-                      user
-                      INNER JOIN sex ON (user.idSex = sex.idSex)               
-                   $where
-                      ";
+                      user u
+                      INNER JOIN permissao p ON (u.idpermissao = p.idpermissao)";
 
         $con=new connection();
         return $con->getResult($sql);
     }
 
-    function deletePerson($id){
-        $sql="Delete from user where idUser=$id";
+    function getUsuario($id=""){
+
+        $sql="SELECT 
+                    u.iduser,
+                      u.nome,
+                      u.nome_usu,
+                      p.idpermissao
+                    FROM
+                      user u
+                      INNER JOIN permissao p ON (u.idpermissao = p.idpermissao) WHERE iduser = $id";
+
+        $con=new connection();
+        return $con->getResult($sql);
+    }
+    function deleteUsuario($id){
+        $sql="delete from user where iduser=$id";
         $con= new connection();
         $con->executeQuery($sql);
 
     }
 
-    function updatePerson(){
-        $sql="UPDATE user set user='$this->user',  pass='$this->pass', 
-                       name='$this->name',age=$this->age,  idSex=$this->sex                     
- WHERE idUser=$this->iduser";
+    function updateUsuario(){
+        $sql="UPDATE user set nome='$this->name',  nome_usu='$this->user', 
+                       idpermissao='$this->id_perm'                     
+ WHERE iduser=$this->iduser";
         $con=new connection();
         $con->executeQuery($sql);
     }
 
     function authenticate($user, $pass){
-        $pass=md5($pass);
+       
         $sql="SELECT   
                     u.iduser,
                       u.nome,
@@ -94,7 +96,7 @@ class daoUsuario {
                   user u
                   INNER JOIN permissao p ON (u.idpermissao = p.idpermissao)
                       WHERE
-                  u.nome_usu = '$user' AND u.senha='$pass'";
+                  u.nome_usu = '$user' AND u.senha=md5('$pass')";
 
         $con=new connection();
         $res=$con->getResult($sql);

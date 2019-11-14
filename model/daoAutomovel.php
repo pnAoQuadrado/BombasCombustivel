@@ -35,8 +35,27 @@ class daoAutomovel {
     // completar funcion para insertar los datos de una reunión, tener en cuenta la estructura de la base de datos.
     function insertAutomovel() {
         $sql="INSERT INTO automovel (num_matricula, idproprietario) VALUES ('$this->num_matricula', $this->id_prop)";
-        
         $con=new connection();
+        $con->executeQuery($sql);
+        $this->insertTaxa();
+        $this->insertSeguro();
+    }
+
+    function insertTaxa() {
+        $data_actual = new DateTime();
+        $result = $data_actual->format('Y-m-d H:i:s');
+        $con=new connection();
+        $idAuto = $con->lastId('idautomovel', 'automovel');
+        $sql="INSERT INTO pag_taxa (data_pag, idmes, idautomovel) VALUES ('$result', 1, $idAuto)";
+        $con->executeQuery($sql);
+    }
+
+    function insertSeguro() {
+        $data_actual = new DateTime();
+        $result = $data_actual->format('Y-m-d H:i:s');
+        $con=new connection();
+        $idAuto = $con->lastId('idautomovel', 'automovel');
+        $sql="INSERT INTO pag_seguro (data_pag, idmes, idautomovel) VALUES ('$result', 1, $idAuto)";
         $con->executeQuery($sql);
     }
 
@@ -91,8 +110,9 @@ class daoAutomovel {
         $con->executeQuery($sql);
     }
 
-    function deleteMaterial($id){
-               $sql="Delete from material where idmaterial=$id";
+    function deleteAutomovel($id){
+               $sql="delete from automovel where idautomovel=$id";
+               echo $sql;die;
                $con= new connection();
                $con->executeQuery($sql);
     }

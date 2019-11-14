@@ -44,7 +44,7 @@ ob_start();
                 <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">LOGIN</h1>
                 </div>
-                <form class="user" action="controller/ccUsuario.php" method="POST">
+                <form class="user" action="controller/ccUsuario.php?modulo=bombas" method="POST">
                 <div class="form-group">
                     <input name="user" type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nome de usuário">
                 </div>
@@ -58,10 +58,6 @@ ob_start();
                 <hr>
                 
                 </form>
-                <div class="text-center">
-                <a class="small" href="{{ route('password.request')}}">Esqueceu a senha?</a>
-                </div>
-
                 <br><br><br><br>
             </div>
             </div>

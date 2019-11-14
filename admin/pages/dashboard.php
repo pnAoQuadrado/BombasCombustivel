@@ -1,34 +1,53 @@
- <!-- top tiles -->
- <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-              <div class="count">2500</div>
-              <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+<?php
+
+    include '../../model/daoStandard.php';
+
+    $ob = new daoStandard();
+    $a = $ob->qtdAuto();
+    $p = $ob->qtdProp();
+
+?>
+
+<section class="wrapper">
+  <br>
+  <br>
+<div class="row">
+              <!--  TODO PANEL -->
+              <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                <div class="content-panel pn">
+                  <div id="profile-01">
+                    <div class="user">
+                      <!--<img src="img/friends/fr-06.jpg" class="img-circle" width="80">-->
+                    </div>
+                  </div>
+                </div>
+                <!-- /panel -->
+              </div>
+              <!-- /col-md-4 -->
+              <!--  PROFILE 01 PANEL -->
+              <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                <div class="content-panel pn">
+                  <div id="profile-02">
+                    <div class="user">
+                      <!--<img src="img/friends/fr-06.jpg" class="img-circle" width="80">-->
+                    </div>
+                  </div>
+                </div>
+                <!-- /panel -->
+              </div>
+              <!-- /col-md-4 -->
+              <!--  PROFILE 02 PANEL -->
+              <div class="col-lg-4 col-md-4 col-sm-4 mb">
+                <div class="content-panel pn">
+                  <div id="profile-03">
+                    <div class="user">
+                      <!--<img src="img/friends/fr-06.jpg" class="img-circle" width="80">-->
+                    </div>
+                  </div>
+                </div>
+                <!-- /panel -->
+              </div>
+              <!--/ col-md-4 -->
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-              <div class="count">123.50</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-              <div class="count green">2,500</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-              <div class="count">4,567</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-              <div class="count">2,315</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-              <div class="count">7,325</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-          </div>
-          <!-- /top tiles -->
+        <!-- /row -->
+      </section>

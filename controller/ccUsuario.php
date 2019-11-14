@@ -5,88 +5,78 @@ extract($_REQUEST);
 ob_start();
 
 
-if (isset($action)) {
+if (isset($accion)) {
+    switch ($accion) {
+        case 'adicionar';
+        {
+                $ob = new daoUsuario($id, $txtUser, $txtSenha, $txtNome, $cmbPerm);
+                $ob->insertUsuario();
+                header("Location:../admin/pages/template.php?opcion=6");
+        }
+        break;
 
-    switch ($action) {
-        case 'add';
-            {
+        case 'alterar';
+        {
+            $ob = new daoUsuario($id, $txtUser, $txtSenha, $txtNome, $cmbPerm);
+            $ob->updateUsuario();
+            header("Location:../admin/pages/template.php?opcion=6");
+        }
+        break;
 
-//validaciones
-                switch ($tipoPerson) {
-                    case 1:
-                        {
-                            $ob = new daoStudent($user, $pass, $name, $age, $sex,$turma);
-                            $ob->insertStudent();
-                            header("Location:../view/template.php?opcion=2");
-                        }
-                        break;
-                    case 2:
-                        {
-                            $ob = new daoTeacher($idUser,$user, $pass, $name, $age, $sex,$materia);
-                            $ob->insertTeacher();
-                            header("Location:../view/template.php?opcion=3");
-                        }
-                        break;
-                }
-
-            }
-            break;
-        case 'update':{
-            switch ($tipoPerson) {
-                case 1:
-                    {
-
-                    }
-                    break;
-                case 2:
-                    {
-                         $ob = new daoTeacher($id,$user, $pass, $name, $age, $sex,$materia);
-                        $ob->updateTeacher();
-                        header("Location:../view/template.php?opcion=3");
-                    }
-                    break;
-            }
-        }break;
-        case 'delete':{
-            switch ($type) {
-                case 1:
-                    {
-
-                    }
-                    break;
-                case 2:
-                    {
-
-                        $ob = new daoTeacher();
-                        $ob->deleteTeacher($userId);
-                        header("Location:../view/template.php?opcion=3");
-                    }
-                    break;
-            }
-        }break;
+        case 'eliminar';
+        {
+            $ob = new daoUsuario();
+            $ob->deleteUsuario($id);
+            header("Location:../admin/pages/template.php?opcion=6");
+        }
+        break;
         case 'close':{
             session_start();
             session_destroy();
-            header("Location:../index.php");
+            if($modulo =='admin'){
+                header("Location:../admin/index.php");
+            }
+            else if($modulo == 'bombas'){
+                header("Location:../index.php");
+            }
+           
         }
-
-
-
     }
 }
 
 
 if(isset($login)){
+
     $ob=new daoUsuario();
     $result=$ob->authenticate($user, $pass);
-    if($result){
-        session_start();
-          $_SESSION['user']=array('nome'=>$result[0]['nome'],'descricao'=>$result[0]['descricao']);
-        header("Location:../view/validar.php");
+
+    if($modulo == 'admin'){
+        if($result){
+            if($result[0]['descricao'] == 'Administrador'){
+                session_start();
+                  $_SESSION['user']=array('nome'=>$result[0]['nome'],'descricao'=>$result[0]['descricao']);
+                header("Location:../admin/pages/template.php?opcion=0");
+            }
+            else{
+                header("Location:../admin/index.php?msg=Permissão negada. Apenas para administradores");
+            }
+        }
+        else{
+            header("Location:../admin/index.php?msg=Dados de usuário incorrectos");
+        }
+       
     }
-    else{
-        header("Location:../view/index.php");
+    else if($modulo == 'bombas'){
+        if($result){
+            session_start();
+              $_SESSION['user']=array('nome'=>$result[0]['nome'],'descricao'=>$result[0]['descricao']);
+            header("Location:../view/validar.php");
+        }
+        else{
+            header("Location:../index.php");
+        }
     }
+    
 }
 
 ?>

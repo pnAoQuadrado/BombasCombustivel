@@ -1,0 +1,18 @@
+.erro{
+    color: red;
+    font-size: 14px;
+}
+
+#editar{
+    color: teal;
+    font-weight: bold;
+}
+
+#eliminar{
+    color: red;
+    font-weight: bold;
+}
+
+.msg{
+    color: red;
+}

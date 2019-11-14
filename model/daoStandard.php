@@ -15,40 +15,20 @@ class daoStandard
          return $con->getResult($sql);
     }
 
-
-
-    function getClasses() {
-        $sql="SELECT * FROM tbclasse;";
+    function getPermissoes() {
+        $sql="SELECT * FROM permissao;";
         $con=new connection();
         return $con->getResult($sql);
     }
 
-    function getCursos() {
-        $sql="SELECT * FROM tbcurso;";
+    function qtdAuto() {
+        $sql="SELECT COUNT(idautomovel) as qtd FROM automovel;";
         $con=new connection();
         return $con->getResult($sql);
     }
 
-    function getTurnos() {
-        $sql="SELECT * FROM tbturno;";
-        $con=new connection();
-        return $con->getResult($sql);
-    }
-
-    function getAutores() {
-        $sql="SELECT * FROM autor;";
-        $con=new connection();
-        return $con->getResult($sql);
-    }
-
-    function getTecnicas() {
-        $sql="SELECT * FROM tecnica;";
-        $con=new connection();
-        return $con->getResult($sql);
-    }
-
-    function getMateriais() {
-        $sql="SELECT * FROM material;";
+    function qtdProp() {
+        $sql="SELECT COUNT(idproprietario) as qtd FROM proprietario;";
         $con=new connection();
         return $con->getResult($sql);
     }

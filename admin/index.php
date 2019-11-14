@@ -1,63 +1,76 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SegTaxa Admin</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>SegTaxa - Admin</title>
 
-    <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
+  <!-- Favicons 
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
-    <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet">
-  </head>
+  <!-- Bootstrap core CSS -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style-responsive.css" rel="stylesheet">
+  <link href="assets/css/meu-css.css" rel="stylesheet">
+  
+  <!-- =======================================================
+    Template Name: Dashio
+    Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
+    Author: TemplateMag.com
+    License: https://templatemag.com/license/
+  ======================================================= -->
+</head>
 
-  <body class="login">
-    <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
+<body>
+  <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+  <div id="login-page">
+    <div class="container">
+      <form class="form-login" action="../controller/ccUsuario.php?modulo=admin" method="post">
+        <h2 class="form-login-heading">SegTaxa ADMIN</h2>
+        <div class="login-wrap"> 
+          <input type="text" class="form-control" placeholder="Usuário" autofocus name="user">
+          <br>
+          <input type="password" class="form-control" placeholder="Senha" name="pass">
+          <br>
+          <button class="btn btn-theme btn-block" href="index.html" type="submit" name="login"><i class="fa fa-lock"></i> ENTRAR</button>
+          <hr>
+          
+          <h5 class="centered msg"><?php 
 
-      <div class="login_wrapper">
-        <div class="animate form login_form">
-          <section class="login_content">
-            <form>
-              <h1>Login</h1>
-              <div>
-                <input type="text" class="form-control" placeholder="Username" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" required="" />
-              </div>
-              <div>
-                <a class="btn btn-default submit" href="index.html">Entrar</a>
-              </div>
+extract($_REQUEST);
 
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                  <h1>SegTaxa!</h1>
-                  <p>©2019 Todos direitos reservados. SegTaxa!</p>
-                </div>
-              </div>
-            </form>
-          </section>
+if(isset($msg)){ 
+  echo $msg;
+   } ?></h5>
+        
         </div>
-      </div>
+      </form>
     </div>
-  </body>
+  </div>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+  <!--BACKSTRETCH-->
+  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+  <script type="text/javascript" src="lib/jquery.backstretch.min.js"></script>
+  <script>
+    $.backstretch("../view/img/bg1.jpg", {
+      speed: 500
+    });
+  </script>
+</body>
+
 </html>

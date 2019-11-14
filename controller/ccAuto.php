@@ -10,7 +10,7 @@ if (isset($accion)) {
         {
                 $ob = new daoAutomovel($id, $txtMatr, $cmbProp);
                 $ob->insertAutomovel();
-                header("Location:../admin/pages/template.php?opcion=1");
+                header("Location:../admin/pages/template.php?opcion=5");
         }
         break;
 
@@ -18,15 +18,15 @@ if (isset($accion)) {
         {
             $ob = new daoAutomovel($id, $txtMatr, $cmbProp);
             $ob->updateAutomovel();
-            header("Location:../admin/pages/template.php?opcion=1");
+            header("Location:../admin/pages/template.php?opcion=5");
         }
         break;
 
         case 'eliminar';
         {
             $ob = new daoAutomovel();
-            $ob->deletePrecoPropina($id);
-            header("Location:../view/template.php?opcion=6");
+            $ob->deleteAutomovel($id);
+            header("Location:../admin/pages/template.php?opcion=5");
         }
         break;
     }
