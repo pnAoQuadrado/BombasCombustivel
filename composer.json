@@ -1,0 +1,23 @@
+{
+    "name": "ndsi/bombas-combustivel",
+    "description": "circulation tax payment control system and auto insurance",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nganzadi Pedro",
+            "email": "nganzadipedro.emp@gmail.com"
+        },
+        {
+            "name": "Gentil Pinto",
+            "email": "gentil.junior.gp@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    }
+}
