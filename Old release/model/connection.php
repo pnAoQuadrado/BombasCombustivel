@@ -26,8 +26,8 @@ class connection
         $this->conn = false;
         $this->host = "127.0.0.1"; // host
         $this->user = "root"; // usuario
-        $this->password = "admin#1234"; // password
-        $this->dataBaseName = "sabc_cps"; // nombre de la BD
+        $this->password = "luffy"; // password
+        $this->dataBaseName = "STB"; // nombre de la BD
         $this->port = 3306;
         $this->connect();
     }
