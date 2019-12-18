@@ -44,13 +44,13 @@
         <script src="./assets/js/jquery.bootstrap.js" type="text/javascript"></script>
         <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
         <script src="./assets/js/jquery.validate.min.js"></script>
-        <script src="./assets/js/extention/choices.js"></script>
+        <script src="./assets/js/choices.js"></script>
 
         <!--  Plugin for the Wizard -->
-        <script src="js/material-bootstrap-wizard.js"></script>
+        <script src="./assets/js/material-bootstrap-wizard.js"></script>
 
         <!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
-        <script src="js/jquery.validate.min.js"></script>
+        <script src="./assets/js/jquery.validate.min.js"></script>
     </body>
 </html>
 

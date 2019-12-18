@@ -7,7 +7,8 @@ use app\classes\Uri;
 require "../bootstrap.php";
 
 $routes = [
-    '/' => 'controllers/homeController'
+    '/' => 'controllers/homeController',
+    '/control' => 'controllers/controlController'
 ];
 
 $uri = Uri::load();

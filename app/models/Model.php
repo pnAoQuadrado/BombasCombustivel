@@ -1,6 +1,6 @@
 <?php
 
-namespace app\classes;
+namespace app\models;
 
 use app\traits\PersistDB;
 use app\classes\Bind;

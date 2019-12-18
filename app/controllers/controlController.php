@@ -1,0 +1,3 @@
+<?php
+
+$layout->addLayout('control');
