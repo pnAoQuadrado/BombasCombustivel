@@ -28,22 +28,16 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb1" for="">Nome completo</label>
-													<input type="text" name="nome" class="form-control" value="<?php echo $nome ?>" readonly>
+													<input type="text" name="nome" class="form-control" value="<?= $automovel->nome; ?>" readonly>
 													<!--<input type="text" name="id_candidato" class="form-control none"  value="">-->
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb2" for="">Número do bilhete de identidade</label>
-													<input type="text" name="bi" class="form-control" value="<?php echo $bi ?>" readonly>
+													<input type="text" name="bi" class="form-control" value="<?= $automovel->num_bi; ?>" readonly>
 												</div>
 											</div>
-											<!--<div class="col-md-6">
-												<div class="form-group">
-													<label for="exampleInputEmail1">E-mail</label>
-													<input type="text" name="email" class="form-control"  value="" readonly>
-												</div>
-											</div>-->
 		                                </div>
 									</div>		
 									<div class="row">
@@ -51,13 +45,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb3" for="">Número de telefone</label>
-													<input type="text" name="genero" class="form-control" value="<?php echo $tel ?>" readonly>
+													<input type="text" name="genero" class="form-control" value="<?= $automovel->telefone; ?>" readonly>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb4" for="">Número da chapa de Matricula</label>
-													<input type="text" name="numeroTelefone" class="form-control" value="<?php echo $matr ?>" readonly>
+													<input type="text" name="numeroTelefone" class="form-control" value="<?= $automovel->num_matricula; ?>" readonly>
 												</div>
 											</div>
 										</div>
@@ -84,7 +78,7 @@
 		                    </div>
 							<div class="wizard-footer">
 								<div class="text-center">
-									<span id="sp-res" class="<?php echo $cor_res ?>"><?php echo $resultado ?></span>
+									<span id="sp-res" class="<?= $cor_res; ?>"><?= $resultado; ?></span>
 								</div>
 								<div class="pull-right">
 									<!--<input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Proximo' />-->

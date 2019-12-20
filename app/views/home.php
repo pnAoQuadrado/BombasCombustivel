@@ -12,9 +12,9 @@
                                 <br><br>
                                 <div class="text-center"></div>
                                 <form class="user" action="/control" method="POST" onsubmit="return validacao();">
-                                    <input type="text" id="search" name="txtPesq" class="form-control mb-4" placeholder="Número da Chapa de Matrícula">
+                                    <input type="text" id="search" name="num_matricula" class="form-control mb-4" placeholder="Número da Chapa de Matrícula">
                                     <button id="teste" class="btn btn-info btn-block my-4" type="submit">Validar</button>
-                                    <input type="hidden" name="action" value="pesquisar" class="btn btn-success">
+                                    <!-- <input type="hidden" name="action" value="pesquisar" class="btn btn-success"> -->
                                     <span id="erro" class="info text-center">dffd</span>
                                     <hr>
                                     <br><br><br><br><br>
