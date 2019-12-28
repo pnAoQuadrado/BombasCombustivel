@@ -15,7 +15,6 @@
         <!-- Custom styles for this template-->
         <link href="./assets/css/sb-admin-2.min.css" rel="stylesheet">
         <link href="./assets/css/custom.css" rel="stylesheet">
-        <link href="./assets/css/mensagens.css" rel="stylesheet">
 
         <!-- CSS Files -->
 	    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +22,6 @@
 
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="./assets/css/demo.css" rel="stylesheet">
-        <link href="./assets/css/page3-style.css" rel="stylesheet">
     </head>
     <body class="bg-gradient-primary">
         

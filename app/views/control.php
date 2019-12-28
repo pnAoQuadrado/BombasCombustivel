@@ -60,16 +60,23 @@
 										<div class="col-sm-12">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label id="texto" for=""><strong>Mês Pago (SEGURO): </strong></label><label id="texto4"> <?php echo $mes_seg ?></label><br>
-													<label id="texto1" for=""><strong>Status (SEGURO): </strong></label><label id="<?php echo $cor_label_1 ?>"> <?php echo $res_seg ?></label>
+													<label id="texto">
+														<strong>Mês Pago (SEGURO): </strong>
+													</label>
+													<label id="texto4"> <?= $mes_seg; ?></label>
+													<br>
+													<label id="texto1">
+														<strong>Status (SEGURO): </strong>
+													</label>
+													<label id="<?= $cor_label_1; ?>"> <?= $res_seg; ?></label>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="texto2" for=""><strong>Mês Pago (TAXA): </strong></label>
-													<label id="texto5"><?php echo $mes_taxa ?></label><br>
-													<label id="texto3" for=""><strong>Status (TAXA): </strong></label>
-													<label id="<?php echo $cor_label_2 ?>"><?php echo $res_taxa ?></label>
+													<label id="texto5"><?= $mes_taxa; ?></label><br>
+													<label id="texto3"><strong>Status (TAXA): </strong></label>
+													<label id="<?= $cor_label_2; ?>"><?= $res_taxa; ?></label>
 												</div>
 											</div>
 										</div>

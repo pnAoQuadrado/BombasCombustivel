@@ -10,7 +10,7 @@
     background-color: red !important;
 }
 
-.bg-login-image {
+/* .bg-login-image {
   background-image: url(../img/1.jpg) !important;
   background-position: center;
   background-size: cover;
@@ -25,7 +25,7 @@
   background: url(../img/3.jpg) !important;
   background-position: center;
   background-size: cover;
-}
+} */
 .border-left-success {
   border-left: 0.25rem solid #0b3a59 !important;
 }
@@ -78,11 +78,11 @@ a.text-warning:hover, a.text-warning:focus {
 	text-align: center !important;
 }
 
-#accordionSidebar.navbar-nav{
+/* #accordionSidebar.navbar-nav{
 	background-image: url(../img/bg.jpg);
 	background-position: center;
   background-size: cover;
-}
+} */
 
 body.bg-gradient-primary{
 	background-image: url(../img/petrol.jpg) !important;
@@ -118,4 +118,76 @@ form.user .form-control-user {
   font-size: 16px;
   font-family: Arial, Helvetica, sans-serif;
   border-radius: 14px;
+}
+
+#lb1, #lb2, #lb3, #lb4, #lb5{
+  font-size: 16px;
+}
+
+.form-control{
+  font-size: 16px;
+}
+
+
+#dv-res, #erro{
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+  padding: 14px;
+  font-style: italic;
+}
+
+.mostra{
+  display: block;
+}
+
+.nao-mostra{
+  display: none;
+}
+
+#bt-finalizar{
+  margin-top: 60px;
+}
+
+#erro{
+  color: red;
+  font-style: italic;
+  font-size: 18px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+
+#texto, #texto1, #texto2, #texto3, #texto4, #texto5{
+  margin-top: 10px;
+  font-size: 16px;
+  color: black;
+}
+
+#texto-vermelho{
+  margin-top: 10px;
+  font-size: 16px;
+  color: red;
+}
+
+#texto-verde{
+  margin-top: 10px;
+  font-size: 16px;
+  color: green;
+}
+
+#lb1, #lb2, #lb3, #lb4{
+  font-size: 16px;
+}
+
+#sp-res{
+  margin-top: 60px;
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-control{
+  font-size: 16px;
 }
