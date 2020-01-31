@@ -8,7 +8,7 @@ use Throwable;
 class Connection {
 
     public static function connect() {
-        $config = require __DIR__."/../config/database.php";
+        $config = require __DIR__."/../config/config.php";
 
         if($config['driver'] == 'sqlite') {
             $sqlite = __DIR__."/../storage/database/".$config['sqlite']['host'];

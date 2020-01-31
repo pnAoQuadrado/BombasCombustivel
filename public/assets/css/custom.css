@@ -1,3 +1,10 @@
+@import './bootstrap.min.css';
+@import './css.css';
+@import './demo.css';
+@import './main.css';
+@import './material-bootstrap-wizard.css';
+@import './sb-admin-2.min.css';
+
 .bdn {
  background-color: red !important;   
 }

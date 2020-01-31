@@ -5,7 +5,7 @@ use app\models\Automovel;
 use app\models\Seguro;
 use app\models\Taxa;
 
-$validation = new Validation;
+#$validation = new Validation;
 $auto       = new Automovel;
 $seguro     = new Seguro;
 $taxa       = new Taxa;
