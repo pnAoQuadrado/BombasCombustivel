@@ -6,7 +6,7 @@
 		        <!--      Wizard container        -->
 		        <div class="wizard-container">
 		            <div class="card wizard-card" data-color="red" id="wizard">
-						<form method="POST" action="/">
+						<!-- <form method="POST" action="/"> -->
 		                	<!-- You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 		                    <div class="wizard-header">
 								<h3 class="wizard-title">
@@ -89,14 +89,14 @@
 								</div>
 								<div class="pull-right">
 									<!--<input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Proximo' />-->
-									<input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish' value='Finalizar' />
+									<a href='/' class='btn btn-finish btn-fill btn-danger btn-wd' name='finish'>Finalizar</a>
 								</div>
 								<!--<div class="pull-left">
 									<input type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous' value='Anterior' />
 								</div>-->
 								<div class="clearfix"></div>
 							</div>
-						</form>
+						<!-- </form> -->
 		            </div>
 		        </div> <!-- wizard container -->
 		    </div>

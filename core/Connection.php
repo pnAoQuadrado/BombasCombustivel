@@ -21,7 +21,8 @@ class Connection {
 
                 return $pdo;
             } catch(Throwable $error) {
-                echo $error->getMessage();
+                // echo $error->getMessage();
+                return false;
             }
         } elseif ($config['driver'] == 'mysql') {
             $host      = $config['mysql']['host'];
@@ -39,9 +40,9 @@ class Connection {
                 
                 return $pdo;
             } catch(Throwable $err) {
-                echo $err->getMessage();
-                Container::serverError();
-                #return false;
+                // echo $err->getMessage();
+                // Container::serverError();
+                return false;
             }
         }
     }
