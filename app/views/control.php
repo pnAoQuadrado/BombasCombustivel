@@ -6,7 +6,7 @@
 		        <!--      Wizard container        -->
 		        <div class="wizard-container">
 		            <div class="card wizard-card" data-color="red" id="wizard">
-						<form method="POST" action="validar.php">
+						<form method="POST" action="/">
 		                	<!-- You can switch " data-color="blue" "  with one of the next bright colors: "green", "orange", "red", "purple"             -->
 		                    <div class="wizard-header">
 								<h3 class="wizard-title">
@@ -28,14 +28,14 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb1" for="">Nome completo</label>
-													<input type="text" name="nome" class="form-control" value="<?= $automovel->nome; ?>" readonly>
+													<input type="text" name="nome" class="form-control" value="<?= $this->viewContent->automovel->nome; ?>" readonly>
 													<!--<input type="text" name="id_candidato" class="form-control none"  value="">-->
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb2" for="">Número do bilhete de identidade</label>
-													<input type="text" name="bi" class="form-control" value="<?= $automovel->num_bi; ?>" readonly>
+													<input type="text" name="bi" class="form-control" value="<?= $this->viewContent->automovel->num_bi; ?>" readonly>
 												</div>
 											</div>
 		                                </div>
@@ -45,13 +45,13 @@
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb3" for="">Número de telefone</label>
-													<input type="text" name="genero" class="form-control" value="<?= $automovel->telefone; ?>" readonly>
+													<input type="text" name="genero" class="form-control" value="<?= $this->viewContent->automovel->telefone; ?>" readonly>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="lb4" for="">Número da chapa de Matricula</label>
-													<input type="text" name="numeroTelefone" class="form-control" value="<?= $automovel->num_matricula; ?>" readonly>
+													<input type="text" name="numeroTelefone" class="form-control" value="<?= $this->viewContent->automovel->num_matricula; ?>" readonly>
 												</div>
 											</div>
 										</div>
@@ -63,20 +63,20 @@
 													<label id="texto">
 														<strong>Mês Pago (SEGURO): </strong>
 													</label>
-													<label id="texto4"> <?= $mes_seg; ?></label>
+													<label id="texto4"> <?= $this->viewContent->mes_seg; ?></label>
 													<br>
 													<label id="texto1">
 														<strong>Status (SEGURO): </strong>
 													</label>
-													<label id="<?= $cor_label_1; ?>"> <?= $res_seg; ?></label>
+													<label id="<?= $this->viewContent->cor_label_1; ?>"> <?= $this->viewContent->res_seg; ?></label>
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
 													<label id="texto2" for=""><strong>Mês Pago (TAXA): </strong></label>
-													<label id="texto5"><?= $mes_taxa; ?></label><br>
+													<label id="texto5"><?= $this->viewContent->mes_taxa; ?></label><br>
 													<label id="texto3"><strong>Status (TAXA): </strong></label>
-													<label id="<?= $cor_label_2; ?>"><?= $res_taxa; ?></label>
+													<label id="<?= $this->viewContent->cor_label_2; ?>"><?= $this->viewContent->res_taxa; ?></label>
 												</div>
 											</div>
 										</div>
@@ -85,7 +85,7 @@
 		                    </div>
 							<div class="wizard-footer">
 								<div class="text-center">
-									<span id="sp-res" class="<?= $cor_res; ?>"><?= $resultado; ?></span>
+									<span id="sp-res" class="<?= $this->viewContent->cor_res; ?>"><?= $this->viewContent->resultado; ?></span>
 								</div>
 								<div class="pull-right">
 									<!--<input type='button' class='btn btn-next btn-fill btn-danger btn-wd' name='next' value='Proximo' />-->

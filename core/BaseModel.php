@@ -6,10 +6,11 @@ use Core\traits\PersistDB;
 use Core\Container;
 
 abstract class BaseModel {
-    use PersistDB;
 
-    private $connection;
+    protected $connection;
     protected $table;
+
+    use PersistDB;
 
     public function __construct() {
         $this->connection = Container::getConn('connection');

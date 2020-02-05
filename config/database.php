@@ -16,7 +16,7 @@ return [
     ],
     "mysql" => [
         "host"     => "localhost",
-        "dbname"   => "base",
+        "dbname"   => "",
         "charset"  => "utf8",
         "user"     => "root",
         "password" => "",
