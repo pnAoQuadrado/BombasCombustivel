@@ -1,7 +1,9 @@
 # Commands to use this project:
 
-- composer install
-- composer dump-autoload -o
+```sh
+    composer install
+    composer dump-autoload -o
+```
 
 Database:
 
@@ -9,4 +11,6 @@ Database:
 
 to run project execute on terminal (on the root directory):
 
-- php -S localhost:8000 -t public
+```sh
+    php -S localhost:8000 -t public
+```
